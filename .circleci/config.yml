@@ -9,17 +9,7 @@ orbs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  build_test_deploy: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
-    jobs:
-      - node/test:
-          # This is the node version to use for the `cimg/node` tag
-          # Relevant tags can be found on the CircleCI Developer Hub
-          # https://circleci.com/developer/images/image/cimg/node
-          version: '16.18.1-browsers'
-          # If you are using yarn, change the line below from "npm" to "yarn"
-          pkg-manager: npm
-      - install-node-example
-      - npm_install
-      - run: npm ng build --prod
-      - run: npm ng test --single-run
+    example-workflow:
+      jobs:
+        - node/test:
+            run-command: test 
