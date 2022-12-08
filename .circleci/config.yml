@@ -32,12 +32,13 @@ jobs:
   test:
     docker:
       - image: cimg/node:16.18.1-browsers
-    environment:
-          - CHROME_BIN=/usr/bin/google-chrome
+    # environment:
+    #       - CHROME_BIN=/usr/bin/google-chrome
 
     steps:
       - checkout
-      - setup-remote-docker
+      - setup_remote_docker:
+          version: 20.10.14
       - run: node --version
       - restore_cache:
           keys:
