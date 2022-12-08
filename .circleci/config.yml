@@ -43,7 +43,7 @@ jobs:
       - run:
           name: install packages
           command: npm install
-      - run: npm ng build --prod
+      - run: ng build --prod
       - save_cache:
           key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
           paths:
