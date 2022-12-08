@@ -48,9 +48,9 @@ jobs:
           key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
           paths:
             - ~/.npm
-      # - run:
-      #     name: Run Tests
-      #     command: npm run test --single-run
+      - run:
+          name: Run Tests
+          command: npm run test
 
 workflows:
   test_my_app:
