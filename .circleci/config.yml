@@ -49,9 +49,9 @@ jobs:
           key: node-deps-v1-{{ .Branch }}-{{checksum "package.json"}}
           paths:
             - ~/.npm
-      - run:
-          name: Run Tests
-          command: yarn ng test --code-coverage --no-watch --no-progress --browsers=ChromeHeadless
+      # - run:
+      #     name: Run Tests
+      #     command: yarn ng test --code-coverage --no-watch --no-progress --browsers=ChromeHeadless
 
 workflows:
   test_my_app:
