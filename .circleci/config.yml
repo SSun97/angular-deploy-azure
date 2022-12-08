@@ -51,7 +51,7 @@ jobs:
             - ~/.npm
       - run:
           name: Run Tests
-          command: yarn ng test --code-coverage --no-watch --no-progress
+          command: yarn ng test --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessCI
 
 workflows:
   test_my_app:
