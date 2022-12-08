@@ -32,22 +32,24 @@ jobs:
   test:
     docker:
       - image: cimg/node:16.18.1-browsers
+    working_directory: ~/repo
+    
     steps:
       - checkout
       - run: node --version
-      # - restore_cache:
-      #     keys:
-      #       - node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
-      # - run:
-      #     name: install packages
-      #     command: npm install
-      # - save_cache:
-      #     key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
-      #     paths:
-      #       - ~/.npm
-      # - run:
-      #     name: Run Tests
-      #     command: npm run test
+      - restore_cache:
+          keys:
+            - node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
+      - run:
+          name: install packages
+          command: npm install
+      - save_cache:
+          key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
+          paths:
+            - ~/.npm
+      - run:
+          name: Run Tests
+          command: npm run test
 
 workflows:
   test_my_app:
