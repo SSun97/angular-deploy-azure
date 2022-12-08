@@ -37,6 +37,7 @@ jobs:
 
     steps:
       - checkout
+      - setup-remote-docker
       - run: node --version
       - restore_cache:
           keys:
@@ -49,6 +50,9 @@ jobs:
           key: node-deps-v1-{{ .Branch }}-{{checksum "package.json"}}
           paths:
             - ~/.npm
+      - run: docker build -t simoncicdangular.azurecr.io/myapp:1.0.2 .
+      - run: docker login --username $DOCKER_USER --password $DOCKER_PASS simoncicdangular.azurecr.io
+      - run: docker push simoncicdangular.azurecr.io/myapp:1.0.2
       # - run:
       #     name: Run Tests
       #     command: yarn ng test --code-coverage --no-watch --no-progress --browsers=ChromeHeadless
