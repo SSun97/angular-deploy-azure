@@ -39,18 +39,18 @@ jobs:
       - run: node --version
       - restore_cache:
           keys:
-            - node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
+            - node-deps-v1-{{ .Branch }}-{{checksum "package.json"}}
       - run:
           name: install packages
           command: yarn install
       - run: yarn ng build --configuration 'production'
       - save_cache:
-          key: node-deps-v1-{{ .Branch }}-{{checksum "package-lock.json"}}
+          key: node-deps-v1-{{ .Branch }}-{{checksum "package.json"}}
           paths:
             - ~/.npm
-      - run:
-          name: Run Tests
-          command: yarn ng test --code-coverage --no-watch --no-progress
+      # - run:
+      #     name: Run Tests
+      #     command: yarn ng test --code-coverage --no-watch --no-progress
 
 workflows:
   test_my_app:
