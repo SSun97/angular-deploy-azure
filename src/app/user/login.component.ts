@@ -6,8 +6,9 @@ import { AuthService } from './auth.service';
 
 import { Store } from '@ngrx/store';
 import { State } from '../state/app.state';
-import { getMaskUserName } from './state/user.reducer';
+import { getCurrentUser, getMaskUserName } from './state/user.reducer';
 import { UserPageActions } from './state/actions';
+import { User } from './user';
 
 @Component({
   selector: 'mda-login',
@@ -18,10 +19,12 @@ export class LoginComponent {
   pageTitle = 'Log In';
 
   maskUserName$!: Observable<boolean>;
+  currentUser$!: Observable<User | null>;
 
   constructor(private router: Router, private store: Store<State>, private authService: AuthService) {}
   ngOnInit(): void {
     this.maskUserName$ = this.store.select(getMaskUserName);
+    this.currentUser$ = this.store.select(getCurrentUser);
   }
 
   cancel(): void {
@@ -41,6 +44,7 @@ export class LoginComponent {
       } else {
         this.router.navigate(['/welcome']);
       }
+      this.store.dispatch(UserPageActions.setCurrentUser({ currentUser: { id: 1, userName: userName, isAdmin: true } }));
     }
   }
 

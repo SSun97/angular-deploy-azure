@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 import { Observable } from 'rxjs';
+import { State } from 'src/app/state/app.state';
+import { UserPageActions } from 'src/app/user/state/actions';
 
 import { User } from 'src/app/user/user';
 
@@ -26,13 +29,14 @@ export class MenuComponent implements OnInit {
     return '';
   }
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, private store: Store<State>) { }
 
   ngOnInit() {
   }
 
   logOut(): void {
     this.authService.logout();
+    this.store.dispatch(UserPageActions.clearCurrentUser());
     this.router.navigate(['/welcome']);
   }
 }

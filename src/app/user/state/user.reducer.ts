@@ -38,5 +38,17 @@ export const userReducer = createReducer<UserState>(
       ...state,
       maskUserName: !state.maskUserName
     };
+  }),
+  on(UserPageActions.setCurrentUser, (state, action): UserState => {
+    return {
+      ...state,
+      currentUser: action.currentUser
+    };
+  }),
+  on(UserPageActions.clearCurrentUser, (state): UserState => {
+    return {
+      ...state,
+      currentUser: null
+    };
   })
 );
