@@ -11,8 +11,8 @@
                      (productWasSelected)="productSelected($any($event))"></mda-product-list>
   </div>
   <div class='col-md-8'>
-    <mda-product-edit [attr.selectedProduct]="selectedProduct$ | async"
-                     [attr.errorMessage]="errorMessage$ | async"
+    <mda-product-edit [selectedProduct]="selectedProduct$ | async"
+                     [errorMessage]="errorMessage$ | async"
                      (clearCurrent)="clearProduct()"
                      (update)="updateProduct($any($event))"
                      (delete)="deleteProduct($any($event))"

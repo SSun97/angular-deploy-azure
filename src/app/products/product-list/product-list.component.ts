@@ -31,6 +31,7 @@ export class ProductListComponent {
 
   productSelected(product: Product): void {
     this.productWasSelected.emit(product);
+    console.log('productSelected' + product);
   }
   ngOnInit(): void {
     console.log('ngOnInit' + "products" +this.products);

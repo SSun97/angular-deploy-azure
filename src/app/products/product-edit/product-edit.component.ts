@@ -19,14 +19,14 @@ import { NumberValidators } from '../../shared/number.validator';
 })
 export class ProductEditComponent implements OnInit, OnChanges {
   pageTitle = 'Product Edit';
-  @Input() errorMessage: string | undefined;
-  @Input() selectedProduct: Product | undefined;
+  @Input() errorMessage: string | undefined | null;
+  @Input() selectedProduct: Product | undefined | null;
   @Output() create = new EventEmitter<Product>();
   @Output() update = new EventEmitter<Product>();
   @Output() delete = new EventEmitter<Product>();
   @Output() clearCurrent = new EventEmitter<void>();
 
-  productForm: FormGroup | undefined;
+  productForm!: FormGroup;
 
   // Use with the generic validation message class
   displayMessage: { [key: string]: string } = {};
