@@ -1,0 +1,21 @@
+<div class='row'>
+  <div class='col-md-4'>
+
+
+    <mda-product-list [displayCode]="displayCode$ | async"
+                     [products]="products$ | async"
+                     [selectedProduct]="selectedProduct$ | async"
+                     [errorMessage]="errorMessage$ | async"
+                     (displayCodeChanged)="checkChanged()"
+                     (initializeNewProduct)="newProduct()"
+                     (productWasSelected)="productSelected($any($event))"></mda-product-list>
+  </div>
+  <div class='col-md-8'>
+    <mda-product-edit [attr.selectedProduct]="selectedProduct$ | async"
+                     [attr.errorMessage]="errorMessage$ | async"
+                     (clearCurrent)="clearProduct()"
+                     (update)="updateProduct($any($event))"
+                     (delete)="deleteProduct($any($event))"
+                     (create)="saveProduct($any($event))"></mda-product-edit>
+  </div>
+</div>

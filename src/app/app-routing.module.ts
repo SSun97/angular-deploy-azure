@@ -10,6 +10,12 @@ const routes: Routes = [
     component: ShellComponent,
     children: [
       { path: 'welcome', component: WelcomeComponent },
+      {
+        path: 'products',
+        // canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('./products/product.module').then(m => m.ProductModule)
+      },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
     ],
   },

@@ -1260,6 +1260,13 @@
   "resolved" "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz"
   "version" "2.0.4"
 
+"@ngrx/effects@^15.0.0":
+  "integrity" "sha512-EfYmGYFF1bNLPCRPnfAZnppT47RPwpprZK6HSQQ1fvV0sA0FYKQilg93ictNhDv+0IhMBZJEbR/hBMYyi4rkBg=="
+  "resolved" "https://registry.npmjs.org/@ngrx/effects/-/effects-15.0.0.tgz"
+  "version" "15.0.0"
+  dependencies:
+    "tslib" "^2.0.0"
+
 "@ngrx/store-devtools@^15.0.0":
   "integrity" "sha512-qvMFjPR9joQWN7Z+zhP03TCb4aCVt2l0wuJkZfhwmeaE1f4d5ms8FuOJh1lNEZg7ZyEfVP+XQ737kl59hEQMUA=="
   "resolved" "https://registry.npmjs.org/@ngrx/store-devtools/-/store-devtools-15.0.0.tgz"
@@ -1821,6 +1828,13 @@
   "integrity" "sha512-S2Hw0TtNkMJhIabBwIojKL9YHO5T0n5eNqWJ7Lrlel/zDbftQpxpapi8tZs3X1HWa+u+QeydGmzzNU0m09+Rcg=="
   "resolved" "https://registry.npmjs.org/amdefine/-/amdefine-1.0.1.tgz"
   "version" "1.0.1"
+
+"angular-in-memory-web-api@^0.15.0":
+  "integrity" "sha512-T07vQTeBEGWfwZRM+jIooYgK4c8LR25I27otIthUkFINAREoPiBNogWDxlnROIeu1k2RrY3QJjMOYq7f62UcgA=="
+  "resolved" "https://registry.npmjs.org/angular-in-memory-web-api/-/angular-in-memory-web-api-0.15.0.tgz"
+  "version" "0.15.0"
+  dependencies:
+    "tslib" "^2.3.0"
 
 "ansi-align@^2.0.0":
   "integrity" "sha512-TdlOggdA/zURfMYa7ABC66j+oqfMew58KpJMbUlH3bcZP1b+cBHIHDDn5uH9INsxrHBPjsqM0tDB4jPTF/vgJA=="
