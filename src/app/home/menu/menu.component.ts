@@ -12,7 +12,8 @@ import { AuthService } from '../../user/auth.service';
 
 @Component({
   selector: 'mda-menu',
-  templateUrl: './menu.component.html'
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
   pageTitle = 'Acme Product Management';
