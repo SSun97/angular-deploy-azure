@@ -15,6 +15,9 @@ import { UserModule } from './user/user.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './shared/material/material.module';
+
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -35,6 +38,8 @@ import { EffectsModule } from '@ngrx/effects';
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([]),
+    BrowserAnimationsModule,
+    MaterialModule
     // FormsModule,
     // ReactiveFormsModule
   ],
