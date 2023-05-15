@@ -9,6 +9,7 @@ import { State } from '../state/app.state';
 import { getCurrentUser, getMaskUserName } from './state/user.reducer';
 import { UserPageActions } from './state/actions';
 import { User } from './user';
+import { MyMonitoringService } from '../logging.service';
 
 @Component({
   selector: 'mda-login',
@@ -21,7 +22,7 @@ export class LoginComponent {
   maskUserName$!: Observable<boolean>;
   currentUser$!: Observable<User | null>;
 
-  constructor(private router: Router, private store: Store<State>, private authService: AuthService) {}
+  constructor(private router: Router, private store: Store<State>, private authService: AuthService, private myMonitor: MyMonitoringService) {}
   ngOnInit(): void {
     this.maskUserName$ = this.store.select(getMaskUserName);
     this.currentUser$ = this.store.select(getCurrentUser);
@@ -38,6 +39,9 @@ export class LoginComponent {
       const userName = loginForm.form.value.userName;
       const password = loginForm.form.value.password;
       this.authService.login(userName, password);
+      this.myMonitor.logEvent('Login', {userName: userName, password: password});
+      // log trace
+      this.myMonitor.logTrace('Login', {userName: userName, password: password});
 
       if (this.authService.redirectUrl) {
         this.router.navigateByUrl(this.authService.redirectUrl);

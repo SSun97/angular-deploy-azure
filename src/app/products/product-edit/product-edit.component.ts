@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from '../product';
 import { GenericValidator } from '../../shared/generic-validator';
 import { NumberValidators } from '../../shared/number.validator';
-
+import { MyMonitoringService } from '../../logging.service';
 @Component({
   selector: 'mda-product-edit',
   templateUrl: './product-edit.component.html'
@@ -33,7 +33,7 @@ export class ProductEditComponent implements OnInit, OnChanges {
   private validationMessages: { [key: string]: { [key: string]: string } };
   private genericValidator: GenericValidator;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private myMonitor: MyMonitoringService) {
     // Defines all of the validation messages for the form.
     // These could instead be retrieved from a file or database.
     this.validationMessages = {
@@ -133,7 +133,15 @@ export class ProductEditComponent implements OnInit, OnChanges {
 
         if (product.id === 0) {
           this.create.emit(product);
-        } else {
+        } 
+        // if product name equals "aaa", throw an Exception
+        else if (product.productName === "aaa") {
+          let error = new Error("product name cannot be aaa");
+          this.myMonitor.logException(error);
+          this.myMonitor.logTrace("product name cannot be aaa");
+          throw error;
+        }
+        else {
           this.update.emit(product);
         }
       }
