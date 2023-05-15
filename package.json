@@ -24,6 +24,7 @@
     "@ngrx/store": "^15.0.0",
     "@ngrx/store-devtools": "^15.0.0",
     "angular-in-memory-web-api": "^0.15.0",
+    "applicationinsights": "^2.6.0",
     "bootstrap": "5.2.3",
     "chrome-headless-launcher": "^0.1.5",
     "rxjs": "~7.5.0",
