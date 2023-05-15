@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { MyMonitoringService } from './logging.service';
 @Component({
   selector: 'mda-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-demo-app';
+  constructor(private myMonitoringService: MyMonitoringService) {
+  
+  }
 }
